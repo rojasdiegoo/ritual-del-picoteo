@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+locale: es
+media_folder: fotos
+public_folder: fotos
+collections:
+  - name: datos
+    label: "Configuracion del sitio"
+    files:
+      - name: contacto
+        label: "Contacto y WhatsApp"
+        file: datos/contacto.json
+        fields:
+          - {label: "WhatsApp", name: whatsapp, widget: string}
+          - {label: "Mensaje WhatsApp", name: whatsapp_mensaje, widget: string}
+          - {label: "Email", name: email, widget: string}
+      - name: precios
+        label: "Precios"
+        file: datos/precios.json
+        fields:
+          - {label: "Tabla Clasica", name: precio_clasica, widget: string}
+          - {label: "Tabla Gourmet", name: precio_gourmet, widget: string}
+          - {label: "Tabla Corporativa", name: precio_corporativa, widget: string}
+          - {label: "Starter", name: precio_corp_starter, widget: string}
+          - {label: "Corporativo", name: precio_corp_corporativo, widget: string}
+          - {label: "Enterprise", name: precio_corp_enterprise, widget: string}
+      - name: talleres
+        label: "Proximos Talleres"
+        file: datos/talleres.json
+        fields:
+          - label: Talleres
+            name: talleres
+            widget: list
+            fields:
+              - {label: "Fecha", name: fecha, widget: string}
+              - {label: "Horario", name: horario, widget: string}
+              - {label: "Lugar", name: lugar, widget: string}
+              - {label: "Cupos", name: cupos, widget: string}
+              - {label: "Completo", name: completo, widget: boolean, default: false}
