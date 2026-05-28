@@ -2,7 +2,7 @@
   "precio_clasica": "G 170.000",
   "precio_gourmet": "G 160.000",
   "precio_corporativa": "G 280.000",
-  "precio_corp_starter": "G 300.000 x persona",
-  "precio_corp_corporativo": "G 490.000 x persona ",
+  "precio_corp_starter": "300.000 Gs x persona",
+  "precio_corp_corporativo": "490.000 Gs x persona",
   "precio_corp_enterprise": "A medida"
 }
