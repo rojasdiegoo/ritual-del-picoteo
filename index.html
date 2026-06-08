@@ -448,12 +448,10 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
 <nav id="nav">
   <a href="#" class="nav-logo">Ritual del Picoteo</a>
   <ul class="nav-links">
-    <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="#talleres">Talleres</a></li>
     <li><a href="#galeria">Galería</a></li>
-    <li><a href="#empresas">Empresas</a></li>
-    <li><a href="#precios">Precios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
     <li><a href="#contacto" class="nav-cta">Reservar →</a></li>
   </ul>
   <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
@@ -461,11 +459,10 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
-  <a href="#nosotros">Nosotros</a>
   <a href="#catalogo">Catálogo</a>
   <a href="#talleres">Talleres</a>
   <a href="#galeria">Galería</a>
-  <a href="#empresas">Empresas</a>
+  <a href="#nosotros">Nosotros</a>
   <a href="#contacto">Reservar</a>
   <div class="mob-soc">
     <a href="https://instagram.com/ritualdelpicoteo" target="_blank">📸</a>
@@ -514,35 +511,6 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
     <span>Asunción, Paraguay</span><span class="gem">✦</span>
   </div>
 </div>
-
-<!-- NOSOTROS -->
-<section id="nosotros" class="sp" style="background:var(--blush)">
-  <div class="container">
-    <div class="nos-grid">
-      <div class="rv-l">
-        <span class="s-eye">Nuestra historia</span>
-        <h2 class="s-title">Detrás del<br>Ritual</h2>
-        <p>Somos Lore y Majo Murdoch, hermanas unidas por la pasión de crear momentos memorables alrededor de la mesa. Creemos que una buena tabla de quesos es mucho más que ingredientes — es una experiencia, un ritual compartido.</p>
-        <p>Nacimos con la convicción de que cada celebración, cada reunión de equipo, cada encuentro especial merece ser memorable. Por eso diseñamos cada tabla con amor y enseñamos en nuestros talleres a crear esa magia con tus propias manos.</p>
-        <a href="#contacto" class="btn btn-terra" style="margin-top:2.2rem">Escríbenos →</a>
-      </div>
-      <div class="owners-pair rv-r">
-        <div class="ocp">
-          <div class="ocp-ico"><img src="fotos/lore2.jpeg" alt="Lore Murdoch" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
-          <div class="ocp-name">Lore Murdoch</div>
-          <div class="ocp-role">Co-fundadora · Creadora del Ritual</div>
-          <a href="https://instagram.com/malomupe" target="_blank" class="ocp-ig">📸 @malomupe</a>
-        </div>
-        <div class="ocp">
-          <div class="ocp-ico"><img src="fotos/majo2.jpeg" alt="Majo Murdoch" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
-          <div class="ocp-name">Majo Murdoch</div>
-          <div class="ocp-role">Co-fundadora · Directora de Experiencias</div>
-          <a href="https://instagram.com/majomurdoch" target="_blank" class="ocp-ig">📸 @majomurdoch</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- CATALOGO -->
 <section id="catalogo" class="sp" style="background:var(--cream)">
@@ -797,14 +765,21 @@ document.getElementById('btn-wa').addEventListener('click', function(){
   ), '_blank');
 });
 
-// Slider cups
+// Slider cups — crossfade suave
 var cupsImgs = ['fotos/cups1.jpg','fotos/cups2.jpg','fotos/cups3.jpg','fotos/cups4.jpg'];
 var cupsIdx = 0;
-setInterval(function(){
-  cupsIdx = (cupsIdx + 1) % cupsImgs.length;
-  var el = document.getElementById('cupsImg');
-  if(el){ el.style.opacity='0'; setTimeout(function(){ el.src=cupsImgs[cupsIdx]; el.style.opacity='1'; },300); }
-}, 2500);
+var cupsEl = document.getElementById('cupsImg');
+if(cupsEl){
+  cupsEl.style.transition = 'opacity 1.2s ease';
+  setInterval(function(){
+    cupsEl.style.opacity = '0';
+    setTimeout(function(){
+      cupsIdx = (cupsIdx + 1) % cupsImgs.length;
+      cupsEl.src = cupsImgs[cupsIdx];
+      cupsEl.style.opacity = '1';
+    }, 1200);
+  }, 4500);
+}
 </script>
 
 
@@ -856,32 +831,6 @@ setInterval(function(){
   </div>
 </section>
 
-<!-- STATS -->
-<section id="stats" class="sp" style="background:var(--blush);padding:5rem 3.5rem">
-  <div class="stats-row">
-    <div class="rv"><span class="st-n" data-target="500">0</span><div class="st-div"></div><span class="st-l">Tablas creadas</span></div>
-    <div class="rv" style="transition-delay:.12s"><span class="st-n" data-target="120">0</span><div class="st-div"></div><span class="st-l">Talleres realizados</span></div>
-    <div class="rv" style="transition-delay:.24s"><span class="st-n" data-target="900">0</span><div class="st-div"></div><span class="st-l">Personas felices</span></div>
-    <div class="rv" style="transition-delay:.36s"><span class="st-n" data-target="50">0</span><div class="st-div"></div><span class="st-l">Empresas clientes</span></div>
-  </div>
-</section>
-
-<!-- CÓMO FUNCIONA -->
-<section id="como" class="sp" style="background:var(--espresso)">
-  <div class="container">
-    <div class="sec-hd rv">
-      <span class="s-eye">El proceso</span>
-      <h2 class="s-title" style="color:var(--cream)">¿Cómo funciona?</h2>
-      <p class="s-desc">Reservar tu taller o tabla es muy simple. Nos encargamos del resto.</p>
-    </div>
-    <div class="steps">
-      <div class="step rv" style="transition-delay:.05s"><div class="step-n">1</div><h4>Escribinos</h4><p>Contanos qué necesitás: taller, tabla o evento corporativo. Respondemos en menos de 24 horas.</p></div>
-      <div class="step rv" style="transition-delay:.15s"><div class="step-n">2</div><h4>Elegimos juntas</h4><p>Definimos el formato, fecha y detalles a tu medida. Personalizamos todo según tu ocasión.</p></div>
-      <div class="step rv" style="transition-delay:.25s"><div class="step-n">3</div><h4>Confirmamos</h4><p>Aseguramos tu cupo con un adelanto. Nos preparamos para hacerlo especial e irrepetible.</p></div>
-      <div class="step rv" style="transition-delay:.35s"><div class="step-n">4</div><h4>Vivís el Ritual</h4><p>Llegá, disfrutá y aprendé. El resto corre por nuestra cuenta.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- GALERÍA -->
 <section id="galeria" class="sp" style="background:var(--cream)">
@@ -891,30 +840,19 @@ setInterval(function(){
       <h2 class="s-title">Galería</h2>
       <p class="s-desc">Cada imagen cuenta una historia. Mirá cómo transformamos ingredientes en experiencias únicas.</p>
     </div>
-    <div class="gal-filter rv">
-      <button class="fb active" data-f="all">Todo</button>
-      <button class="fb" data-f="tablas">Tablas</button>
-      <button class="fb" data-f="talleres">Talleres</button>
-      <button class="fb" data-f="eventos">Eventos</button>
+
+    <!-- FOTO PRINCIPAL con crossfade -->
+    <div class="gal-hero rv" id="galHero" style="position:relative;border-radius:1.4rem;overflow:hidden;aspect-ratio:4/3;max-height:480px;cursor:pointer;background:#f0ebe4;user-select:none">
+      <img id="galHeroImg" src="fotos/ig_tabla1.jpg" alt="Galería" style="width:100%;height:100%;object-fit:cover;display:block">
+      <!-- dots -->
+      <div id="galDots" style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:2"></div>
+      <!-- arrows -->
+      <button onclick="galMove(-1)" style="position:absolute;left:.8rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.8);border:none;border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.3rem;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;line-height:1">‹</button>
+      <button onclick="galMove(1)" style="position:absolute;right:.8rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.8);border:none;border-radius:50%;width:2.6rem;height:2.6rem;font-size:1.3rem;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;line-height:1">›</button>
     </div>
-    <div class="masonry" id="masonry">
-      <div class="gi rv" data-cat="tablas"><img src="fotos/ig_tabla1.jpg" alt="Tabla clásica" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="talleres" style="transition-delay:.06s"><img src="fotos/ig_taller1.jpg" alt="Taller" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="tablas" style="transition-delay:.12s"><img src="fotos/ig_tabla2.jpg" alt="Tabla gourmet" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="eventos" style="transition-delay:.18s"><img src="fotos/eurodesign1.jpg" alt="Evento corporativo" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="talleres" style="transition-delay:.24s"><img src="fotos/ig_taller2.jpg" alt="Taller grupo" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="eventos" style="transition-delay:.3s"><img src="fotos/ig_evento1.jpg" alt="Evento vinos" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="talleres" style="transition-delay:.36s"><img src="fotos/iga_taller3.jpg" alt="Taller experiencia" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="eventos" style="transition-delay:.42s"><img src="fotos/eurodesign2.jpg" alt="Evento especial" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="talleres" style="transition-delay:.48s"><img src="fotos/ig_taller5.jpg" alt="Taller quesos" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="eventos" style="transition-delay:.54s"><img src="fotos/ig_evento2.jpg" alt="Evento corporativo 2" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="talleres" style="transition-delay:.6s"><img src="fotos/ig_taller6.jpg" alt="Taller grupo" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="eventos" style="transition-delay:.66s"><img src="fotos/eurodesign3.jpg" alt="Evento quesos" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="talleres" style="transition-delay:.72s"><img src="fotos/ig_taller7.jpg" alt="Taller aprendizaje" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-      <div class="gi rv" data-cat="eventos" style="transition-delay:.78s"><img src="fotos/ig_evento3.jpg" alt="Evento especial" loading="lazy"><div class="gi-ov"><span>+</span></div></div>
-    </div>
-    <div style="text-align:center;margin-top:3rem" class="rv">
-      <p style="color:#8A7869;margin-bottom:1.5rem;font-size:.88rem">Seguinos para más inspiración 📸</p>
+
+    <div style="text-align:center;margin-top:2.5rem" class="rv">
+      <p style="color:#8A7869;margin-bottom:1.2rem;font-size:.88rem">Seguinos para más inspiración 📸</p>
       <a href="https://instagram.com/ritualdelpicoteo" target="_blank" class="btn btn-terra">Ver Instagram ✦</a>
     </div>
   </div>
@@ -926,34 +864,108 @@ setInterval(function(){
   <img src="" id="lbImg" alt="">
 </div>
 
-<!-- EMPRESAS -->
-<section id="empresas" class="sp" style="background:var(--blush)">
-  <div class="container">
-    <div class="sec-hd rv">
-      <span class="s-eye">Para empresas</span>
-      <h2 class="s-title">Experiencias que<br>unen equipos</h2>
-      <p class="s-desc">El picoteo como herramienta de conexión corporativa. Tu equipo lo merece.</p>
-    </div>
-    <div class="emp-grid">
-      <div class="emp-img rv-l" style="position:relative">
-        <img id="euroImg" src="fotos/eurodesign1.jpg" alt="Evento corporativo Eurodesign" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:1.2rem;transition:opacity .5s ease">
-        <div class="emp-badge">+50 empresas<br>confían en nosotros</div>
-      </div>
-      <div class="emp-content rv-r">
-        <span class="s-eye" style="text-align:left">¿Por qué elegirnos?</span>
-        <h2 class="s-title" style="font-size:2rem;text-align:left">El team building<br>más delicioso</h2>
-        <p>Trabajamos con startups, pymes y grandes corporaciones que buscan una experiencia diferente para sus equipos. Nuestros talleres combinan aprendizaje, risas y muy buena comida.</p>
-        <div class="emp-feats">
-          <div class="ef"><div class="ef-ico">📍</div><h5>A domicilio</h5><p>Vamos donde tu empresa esté</p></div>
-          <div class="ef"><div class="ef-ico">👥</div><h5>Sin límite</h5><p>De 10 a 200+ personas</p></div>
-          <div class="ef"><div class="ef-ico">✨</div><h5>Personalizado</h5><p>Con tu marca y temática</p></div>
-          <div class="ef"><div class="ef-ico">🧾</div><h5>Factura</h5><p>Documentación completa</p></div>
-        </div>
-        <a href="#contacto" class="btn btn-terra">Cotizar para mi empresa →</a>
-      </div>
-    </div>
-  </div>
-</section>
+<script>
+(function(){
+  var GAL = [
+    'fotos/ig_tabla1.jpg',
+    'fotos/ig_taller1.jpg',
+    'fotos/ig_tabla2.jpg',
+    'fotos/eurodesign1.jpg',
+    'fotos/ig_taller2.jpg',
+    'fotos/ig_evento1.jpg',
+    'fotos/iga_taller3.jpg',
+    'fotos/eurodesign2.jpg',
+    'fotos/ig_taller5.jpg',
+    'fotos/ig_evento2.jpg',
+    'fotos/ig_taller6.jpg',
+    'fotos/eurodesign3.jpg',
+    'fotos/ig_taller7.jpg',
+    'fotos/ig_evento3.jpg'
+  ];
+  var galIdx = 0;
+  var galBusy = false;
+  var galTimer = null;
+  var img = document.getElementById('galHeroImg');
+  var dotsEl = document.getElementById('galDots');
+
+  // Build dots
+  GAL.forEach(function(_, i){
+    var d = document.createElement('div');
+    d.style.cssText = 'width:.5rem;height:.5rem;border-radius:50%;background:rgba(255,255,255,.45);transition:all .35s;cursor:pointer;flex-shrink:0';
+    d.addEventListener('click', function(){ galGoTo(i); });
+    dotsEl.appendChild(d);
+  });
+
+  function updateDots(){
+    var dots = dotsEl.children;
+    for(var i=0; i<dots.length; i++){
+      dots[i].style.background = i===galIdx ? 'rgba(255,255,255,.95)' : 'rgba(255,255,255,.4)';
+      dots[i].style.width = i===galIdx ? '.8rem' : '.5rem';
+    }
+  }
+
+  function galGoTo(idx){
+    if(galBusy || idx===galIdx) return;
+    galBusy = true;
+    clearInterval(galTimer);
+    // fade out
+    img.style.transition = 'opacity .7s ease';
+    img.style.opacity = '0';
+    var nextIdx = idx;
+    setTimeout(function(){
+      img.src = GAL[nextIdx];
+      img.onload = function(){
+        img.style.opacity = '1';
+        galIdx = nextIdx;
+        updateDots();
+        setTimeout(function(){ galBusy = false; startTimer(); }, 700);
+      };
+      img.onerror = function(){
+        img.style.opacity = '1';
+        galIdx = nextIdx;
+        updateDots();
+        setTimeout(function(){ galBusy = false; startTimer(); }, 100);
+      };
+    }, 700);
+  }
+
+  window.galMove = function(dir){
+    galGoTo((galIdx + dir + GAL.length) % GAL.length);
+  };
+
+  function startTimer(){
+    clearInterval(galTimer);
+    galTimer = setInterval(function(){
+      galGoTo((galIdx + 1) % GAL.length);
+    }, 5500);
+  }
+
+  // Touch swipe
+  var tsX = null;
+  var hero = document.getElementById('galHero');
+  hero.addEventListener('touchstart', function(e){ tsX = e.touches[0].clientX; }, {passive:true});
+  hero.addEventListener('touchend', function(e){
+    if(tsX===null) return;
+    var dx = e.changedTouches[0].clientX - tsX;
+    tsX = null;
+    if(Math.abs(dx) > 45) galMove(dx < 0 ? 1 : -1);
+  });
+
+  // Click hero → lightbox
+  hero.addEventListener('click', function(e){
+    if(e.target.tagName==='BUTTON') return;
+    var lb = document.getElementById('lb');
+    var lbImg = document.getElementById('lbImg');
+    if(lb && lbImg){ lbImg.src = GAL[galIdx]; lb.classList.add('open'); }
+  });
+
+  // Init
+  img.style.transition = 'opacity .7s ease';
+  updateDots();
+  startTimer();
+})();
+</script>
+
 
 <!-- TESTIMONIOS -->
 <section id="test" class="sp">
@@ -1005,64 +1017,6 @@ setInterval(function(){
   </div>
 </section>
 
-<!-- PRECIOS -->
-<section id="precios" class="sp" style="background:var(--blush)">
-  <div class="container">
-    <div class="sec-hd rv">
-      <span class="s-eye">Paquetes para empresas</span>
-      <h2 class="s-title">Invertí en tu equipo</h2>
-      <p class="s-desc">Elegí el paquete que mejor se adapte a tu empresa. Todos incluyen materiales, degustación y la experiencia completa.</p>
-    </div>
-    <div class="price-grid">
-      <div class="price-card rv" style="transition-delay:.08s">
-        <div class="pr-name">Starter</div>
-        <div class="pr-sub">Equipos pequeños</div>
-        <div class="pr-num pc-price">300.000 Gs x persona</div>
-        <span class="pr-per">por grupo de hasta 15 personas</span>
-        <ul class="pr-feats">
-          <li>Taller guiado de 2 horas</li>
-          <li>Materiales e ingredientes incluidos</li>
-          <li>Tabla individual por persona</li>
-          <li>Fotografía del evento</li>
-          <li>Recetario digital Ritual</li>
-        </ul>
-        <a href="#contacto" class="pr-cta">Cotizar →</a>
-      </div>
-      <div class="price-card feat rv" style="transition-delay:.18s">
-        <div class="pr-name">Corporativo</div>
-        <div class="pr-sub">El más solicitado</div>
-        <div class="pr-num pc-price">490.000 Gs x persona</div>
-        <span class="pr-per">por grupo de hasta 35 personas</span>
-        <ul class="pr-feats">
-          <li>Taller premium de 3 horas</li>
-          <li>Ingredientes gourmet seleccionados</li>
-          <li>Maridaje con vinos y espumantes</li>
-          <li>Tabla premium por persona</li>
-          <li>Fotografía profesional del evento</li>
-          <li>Branding opcional de tu empresa</li>
-        </ul>
-        <a href="#contacto" class="pr-cta">Reservar →</a>
-      </div>
-      <div class="price-card rv" style="transition-delay:.28s">
-        <div class="pr-name">Enterprise</div>
-        <div class="pr-sub">Grandes eventos</div>
-        <div class="pr-num pc-price">A medida</div>
-
-        <ul class="pr-feats">
-          <li>Diseño 100% personalizado</li>
-          <li>Múltiples estaciones de queso</li>
-          <li>Ambientación con marca corporativa</li>
-          <li>Staff adicional incluido</li>
-          <li>Factura empresarial</li>
-          <li>Coordinación logística completa</li>
-          <li>Cobertura fotográfica profesional</li>
-        </ul>
-        <a href="#contacto" class="pr-cta">Consultar →</a>
-      </div>
-    </div>
-    <p class="pr-note rv">💡 Precios referenciales — pueden variar según ubicación e ingredientes. Escribinos para una cotización exacta.</p>
-  </div>
-</section>
 
 <!-- PRÓXIMOS TALLERES -->
 <section id="proximos" class="sp" style="background:var(--cream)">
@@ -1116,6 +1070,35 @@ fetch('/datos/talleres.json')
     document.getElementById('sched-lista').innerHTML = '';
   });
 </script>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="sp" style="background:var(--blush)">
+  <div class="container">
+    <div class="nos-grid">
+      <div class="rv-l">
+        <span class="s-eye">Nuestra historia</span>
+        <h2 class="s-title">Detrás del<br>Ritual</h2>
+        <p>Somos Lore y Majo Murdoch, hermanas unidas por la pasión de crear momentos memorables alrededor de la mesa. Creemos que una buena tabla de quesos es mucho más que ingredientes — es una experiencia, un ritual compartido.</p>
+        <p>Nacimos con la convicción de que cada celebración, cada reunión de equipo, cada encuentro especial merece ser memorable. Por eso diseñamos cada tabla con amor y enseñamos en nuestros talleres a crear esa magia con tus propias manos.</p>
+        <a href="#contacto" class="btn btn-terra" style="margin-top:2.2rem">Escríbenos →</a>
+      </div>
+      <div class="owners-pair rv-r">
+        <div class="ocp">
+          <div class="ocp-ico"><img src="fotos/lore2.jpeg" alt="Lore Murdoch" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
+          <div class="ocp-name">Lore Murdoch</div>
+          <div class="ocp-role">Co-fundadora · Creadora del Ritual</div>
+          <a href="https://instagram.com/malomupe" target="_blank" class="ocp-ig">📸 @malomupe</a>
+        </div>
+        <div class="ocp">
+          <div class="ocp-ico"><img src="fotos/majo2.jpeg" alt="Majo Murdoch" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
+          <div class="ocp-name">Majo Murdoch</div>
+          <div class="ocp-role">Co-fundadora · Directora de Experiencias</div>
+          <a href="https://instagram.com/majomurdoch" target="_blank" class="ocp-ig">📸 @majomurdoch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACTO -->
 <section id="contacto" class="sp" style="background:var(--espresso)">
@@ -1380,19 +1363,8 @@ if(euroEl){
   },3000);
 }
 
-/* ── CUPS SLIDER ── */
-var cupsImgs=['fotos/cups1.jpg','fotos/cups2.jpg','fotos/cups3.jpg','fotos/cups4.jpg'];
-var cupsIdx=0;
-var cupsEl=document.getElementById('cupsImg');
-if(cupsEl){
-  setInterval(function(){
-    cupsEl.style.opacity='0';
-    setTimeout(function(){
-      cupsIdx=(cupsIdx+1)%cupsImgs.length;
-      cupsEl.src=cupsImgs[cupsIdx];
-      cupsEl.style.opacity='1';
-    },500);
-  },2500);
+/* ── CUPS SLIDER — manejado arriba ── */
+if(false){
 }
 
 /* ── TILT ON CARDS ── */
