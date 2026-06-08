@@ -467,13 +467,13 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
       </div>
       <div class="owners-pair rv-r">
         <div class="ocp">
-          <div class="ocp-ico">🧀</div>
+          <div class="ocp-ico"><img src="fotos/lore2.jpeg" alt="Lore Murdoch" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
           <div class="ocp-name">Lore Murdoch</div>
           <div class="ocp-role">Co-fundadora · Creadora del Ritual</div>
           <a href="https://instagram.com/malomupe" target="_blank" class="ocp-ig">📸 @malomupe</a>
         </div>
         <div class="ocp">
-          <div class="ocp-ico">🍇</div>
+          <div class="ocp-ico"><img src="fotos/majo2.jpeg" alt="Majo Murdoch" style="width:90px;height:90px;border-radius:50%;object-fit:cover;object-position:center top;"></div>
           <div class="ocp-name">Majo Murdoch</div>
           <div class="ocp-role">Co-fundadora · Directora de Experiencias</div>
           <a href="https://instagram.com/majomurdoch" target="_blank" class="ocp-ig">📸 @majomurdoch</a>
@@ -589,7 +589,7 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
         <div class="tc-ico">🏢</div>
         <h4>Taller Corporativo</h4>
         <p>Perfecto para team buildings, celebraciones de empresa o un momento diferente con tu equipo. Adaptamos el taller completamente a tus necesidades y número de personas.</p>
-        <span class="tc-dur">⏱ 2–3 hrs · 10 a 200+ personas</span>
+        <span class="tc-dur">⏱ 2–3 hrs · A partir de 10 personas</span>
       </div>
       <div class="tc rv" style="transition-delay:.18s">
         <div class="tc-ico">🎉</div>
@@ -824,24 +824,44 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
       <h2 class="s-title">Próximos Talleres</h2>
       <p class="s-desc">Los cupos son limitados. Reservá con anticipación para asegurar tu lugar en el próximo Ritual.</p>
     </div>
-    <div class="sched-box rv" id="sched-lista">
-      <div class="sched-row">
-        <div class="date-blk"><span class="date-d">07</span><span class="date-m">Jun 2026</span></div>
-        <div class="sched-info"><h4>Taller Maridaje &amp; Quesos</h4><p>📍 Villa Morra · 19:00 a 21:00 hrs</p><p class="sched-spots">🟢 8 cupos disponibles</p></div>
-        <button class="sched-btn">Reservar →</button>
-      </div>
-      <div class="sched-row">
-        <div class="date-blk"><span class="date-d">14</span><span class="date-m">Jun 2026</span></div>
-        <div class="sched-info"><h4>Taller Corporativo (grupo privado)</h4><p>📍 San Lorenzo · 12:00 a 14:30 hrs</p><p class="sched-spots" style="color:#8A7869">🔴 Cupos agotados</p></div>
-        <button class="sched-btn full" disabled>Agotado</button>
-      </div>
-      <div class="sched-row">
-        <div class="date-blk"><span class="date-d">21</span><span class="date-m">Jun 2026</span></div>
-        <div class="sched-info"><h4>Taller Picoteo Dulce &amp; Especial</h4><p>📍 Luque · 11:00 a 13:00 hrs</p><p class="sched-spots">🟢 10 cupos disponibles</p></div>
-        <button class="sched-btn">Reservar →</button>
-      </div>
-    </div>
+    <div id="sched-lista"></div>
+  </div>
 </section>
+
+<script>
+fetch('/datos/talleres.json')
+  .then(r => r.json())
+  .then(data => {
+    const cont = document.getElementById('sched-lista');
+    if (!data.mostrar_talleres || !data.talleres || data.talleres.length === 0) {
+      cont.innerHTML = `
+        <div style="text-align:center;padding:3rem 1rem;">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">📅</div>
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--choco);margin-bottom:.75rem;">Próximamente nuevas fechas</h3>
+          <p style="color:var(--moca);max-width:420px;margin:0 auto 1.5rem;">Seguinos en Instagram para enterarte primero de cada nuevo Ritual.</p>
+          <a href="https://instagram.com/ritualdelpicoteo" target="_blank" class="btn btn-terra">📸 @ritualdelpicoteo</a>
+        </div>`;
+    } else {
+      const waNro = '595991538133';
+      const rows = data.talleres.map(t => `
+        <div class="sched-row">
+          <div class="sched-info">
+            <h4>${t.fecha}</h4>
+            <p>⏱ ${t.horario} · 📍 ${t.lugar}</p>
+            <p class="sched-spots">${t.completo ? '🔴 Cupos agotados' : '🟢 ' + t.cupos}</p>
+          </div>
+          ${t.completo
+            ? `<button class="sched-btn full" disabled>Agotado</button>`
+            : `<a class="sched-btn" href="https://wa.me/${waNro}?text=Hola!%20Quiero%20reservar%20para%20el%20taller%20del%20${encodeURIComponent(t.fecha)}" target="_blank">Reservar →</a>`
+          }
+        </div>`).join('');
+      cont.innerHTML = `<div class="sched-box rv">${rows}</div>`;
+    }
+  })
+  .catch(() => {
+    document.getElementById('sched-lista').innerHTML = '';
+  });
+</script>
 
 <!-- CONTACTO -->
 <section id="contacto" class="sp">

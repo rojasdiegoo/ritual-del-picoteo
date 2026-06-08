@@ -1,18 +1,4 @@
 {
-  "talleres": [
-    {
-      "fecha": "Miercoles 10 de Junio",
-      "horario": "19:00-21:00 hs",
-      "lugar": "DG MARKET - Centro de experiencia de Distribuidora Gloria",
-      "cupos": "20 lugares disponibles",
-      "completo": false
-    },
-    {
-      "fecha": "Miercoles 17 de Junio",
-      "horario": "19:00-22:00 hs",
-      "lugar": "DG MARKET",
-      "cupos": "18 lugares disponibles",
-      "completo": false
-    }
-  ]
+  "mostrar_talleres": false,
+  "talleres": []
 }

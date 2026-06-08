@@ -29,6 +29,11 @@ collections:
         label: "Proximos Talleres"
         file: datos/talleres.json
         fields:
+          - label: "Mostrar fechas de talleres"
+            name: mostrar_talleres
+            widget: boolean
+            default: false
+            hint: "Activá esto cuando tengas fechas disponibles. Si está desactivado, se muestra el mensaje 'Próximamente'."
           - label: Talleres
             name: talleres
             widget: list
