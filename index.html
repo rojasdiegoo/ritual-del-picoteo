@@ -1015,7 +1015,9 @@ fetch('/datos/talleres.json')
   .then(r => r.json())
   .then(data => {
     const cont = document.getElementById('sched-lista');
+    const mobCta = document.querySelector('.mob-cta');
     if (!data.mostrar_talleres || !data.talleres || data.talleres.length === 0) {
+      if (mobCta) mobCta.style.display = 'none';
       cont.innerHTML = `
         <div style="text-align:center;padding:3rem 1rem;">
           <div style="font-size:2.5rem;margin-bottom:1rem;">📅</div>
