@@ -381,8 +381,7 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
   .mob-cta{display:flex}
   body{padding-bottom:70px;cursor:auto}
   #cur,#cur-ring{display:none}
-  .wa-btn{bottom:5.5rem}
-  .btt{bottom:8.5rem}
+  #cart-fab{bottom:5.5rem!important}
   #cat-grid{grid-template-columns:repeat(2,1fr)!important;gap:.9rem}
   .steps{grid-template-columns:1fr}
   .steps::before{display:none}
@@ -617,7 +616,7 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
 </div>
 
 <!-- CARRITO FLOTANTE -->
-<button id="cart-fab" style="display:none;position:fixed;bottom:2rem;right:1.5rem;z-index:900;background:var(--espresso);color:var(--cream);border:none;border-radius:2rem;padding:.85rem 1.4rem;font-family:var(--sans);font-size:.85rem;font-weight:600;cursor:pointer;align-items:center;gap:.6rem;box-shadow:0 8px 28px rgba(44,24,16,.3);transition:transform .3s;letter-spacing:.05em">
+<button id="cart-fab" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:900;background:var(--espresso);color:var(--cream);border:none;border-radius:2rem;padding:.85rem 1.4rem;font-family:var(--sans);font-size:.85rem;font-weight:600;cursor:pointer;align-items:center;gap:.6rem;box-shadow:0 8px 28px rgba(44,24,16,.3);transition:transform .3s;letter-spacing:.05em">
   🛒 Ver pedido &nbsp;<span id="cart-count" style="background:var(--terra);color:#fff;border-radius:50%;width:22px;height:22px;font-size:.72rem;display:inline-flex;align-items:center;justify-content:center;font-weight:700">0</span>
 </button>
 
@@ -1191,11 +1190,6 @@ fetch('/datos/talleres.json')
   <a href="#proximos" class="btn btn-terra" style="font-size:.72rem;padding:.65rem 1.3rem">Reservar →</a>
 </div>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/595991538133?text=Hola%2C%20me%20gustar%C3%ADa%20ver%20men%C3%BA%20y%20presupuestos" class="wa-btn" target="_blank">
-  💬<span class="wa-badge">1</span>
-</a>
-<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
 /* ── LOADER: se oculta a los 2.2s sin esperar imágenes ── */
