@@ -388,7 +388,7 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
   <a href="#" class="nav-logo">Ritual del Picoteo</a>
   <ul class="nav-links">
     <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#tablitas">Tablas</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="#talleres">Talleres</a></li>
     <li><a href="#galeria">Galería</a></li>
     <li><a href="#empresas">Empresas</a></li>
@@ -401,7 +401,7 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
   <a href="#nosotros">Nosotros</a>
-  <a href="#tablitas">Tablas</a>
+  <a href="#catalogo">Catálogo</a>
   <a href="#talleres">Talleres</a>
   <a href="#galeria">Galería</a>
   <a href="#empresas">Empresas</a>
@@ -483,58 +483,80 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
   </div>
 </section>
 
-<!-- TABLITAS -->
-<section id="tablitas" class="sp" style="background:var(--cream)">
+<!-- CATALOGO -->
+<section id="catalogo" class="sp" style="background:var(--cream)">
   <div class="container">
     <div class="sec-hd rv">
-      <span class="s-eye">Nuestras creaciones</span>
-      <h2 class="s-title">Tablas de queso<br>para cada momento</h2>
-      <p class="s-desc">Cada tabla es armada con cuidado y criterio — quesos seleccionados, acompañamientos pensados y una presentación que enamora.</p>
+      <span class="s-eye">Pedí online</span>
+      <h2 class="s-title">Nuestro Catálogo</h2>
+      <p class="s-desc">Elegí tus productos, sumá al carrito y coordinamos la entrega por WhatsApp.</p>
     </div>
     <div class="tbl-grid" style="grid-template-columns:repeat(2,1fr)">
+
+      <!-- RITUAL PARA DOS -->
       <div class="tbl-card rv" style="transition-delay:.08s">
         <div class="tbl-img">
-          <img src="fotos/ritual_foto_9.jpg" alt="Tabla Clásica" loading="lazy">
+          <img src="fotos/Catalogo/caja-para2.jpg" alt="Ritual para Dos" loading="lazy">
+          <span class="tbl-badge">❤ Para una cita</span>
+        </div>
+        <div class="tbl-body">
+          <div class="tbl-cat">Para dos</div>
+          <h3 class="tbl-name">Ritual para Dos</h3>
+          <p class="tbl-desc">Embutidos, quesos variados, frutos secos, miel, uvas, aceitunas, pretzels y brochetas caprese. Perfecta para una cita o un momento especial entre dos.</p>
+          <div class="tbl-foot">
+            <span class="tbl-price">Gs. 180.000</span>
+            <div class="qty-ctrl" data-idx="0">
+              <button class="qty-btn qty-minus">−</button>
+              <input class="qty-val" type="number" value="0" min="0" step="1">
+              <button class="qty-btn qty-plus">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA MARIDAJE -->
+      <div class="tbl-card rv" style="transition-delay:.18s">
+        <div class="tbl-img">
+          <img src="fotos/Catalogo/tabla-rectangular-+vino.jpg" alt="Tabla Maridaje" loading="lazy">
+          <span class="tbl-badge">🍷 Vino incluido</span>
+        </div>
+        <div class="tbl-body">
+          <div class="tbl-cat">Con vino incluido</div>
+          <h3 class="tbl-name">Tabla Maridaje</h3>
+          <p class="tbl-desc">Quesos premium e importados, jamón serrano, salami, frutos secos, uvas, pepinillos, aceitunas y acompañamientos seleccionados, con una botella de vino incluida.</p>
+          <div class="tbl-foot">
+            <span class="tbl-price">Gs. 390.000</span>
+            <div class="qty-ctrl" data-idx="1">
+              <button class="qty-btn qty-minus">−</button>
+              <input class="qty-val" type="number" value="0" min="0" step="1">
+              <button class="qty-btn qty-plus">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA CLASICA -->
+      <div class="tbl-card rv" style="transition-delay:.28s">
+        <div class="tbl-img">
+          <img src="fotos/Catalogo/4987907325607742596.jpg" alt="Tabla Clásica" loading="lazy">
           <span class="tbl-badge">★ Más pedida</span>
         </div>
         <div class="tbl-body">
           <div class="tbl-cat">Para compartir</div>
           <h3 class="tbl-name">Tabla Clásica</h3>
-          <p class="tbl-desc">Selección de quesos curados y cremosos, embutidos, frutos secos, mermeladas, aceitunas y pretzel. Perfecta para una reunión íntima.</p>
+          <p class="tbl-desc">Quesos seleccionados —camembert, azul y mozzarella a las finas hierbas—, salame, jamón serrano, aceitunas, pepinillos, uvas, nueces y frutos secos.</p>
           <div class="tbl-foot">
-            <span class="tbl-price">G ₲ 170.000</span>
-            <a href="#contacto" class="tbl-btn">Pedir →</a>
+            <span class="tbl-price">Gs. 270.000</span>
+            <div class="qty-ctrl" data-idx="2">
+              <button class="qty-btn qty-minus">−</button>
+              <input class="qty-val" type="number" value="0" min="0" step="1">
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
         </div>
       </div>
-      <div class="tbl-card rv" style="transition-delay:.18s">
-        <div class="tbl-img">
-          <img src="fotos/ritual_foto_1.jpg" alt="Tabla Gourmet" loading="lazy">
-        </div>
-        <div class="tbl-body">
-          <div class="tbl-cat">Premium</div>
-          <h3 class="tbl-name">Tabla Gourmet</h3>
-          <p class="tbl-desc">Quesos premium e importados, jamón serrano, higos frescos, miel, uvas, nueces y acompañamientos seleccionados. Una experiencia de otro nivel.</p>
-          <div class="tbl-foot">
-            <span class="tbl-price">G ₲ 160.000</span>
-            <a href="#contacto" class="tbl-btn">Pedir →</a>
-          </div>
-        </div>
-      </div>
-      <div class="tbl-card rv" style="transition-delay:.28s">
-        <div class="tbl-img">
-          <img src="fotos/ritual_foto_7.jpg" alt="Tabla Corporativa" loading="lazy">
-        </div>
-        <div class="tbl-body">
-          <div class="tbl-cat">Corporativa</div>
-          <h3 class="tbl-name">Tabla Corporativa</h3>
-          <p class="tbl-desc">Diseñada para eventos de empresa. Gran variedad de quesos, acompañamientos y presentación impecable. Ideal para impresionar.</p>
-          <div class="tbl-foot">
-            <span class="tbl-price">G ₲ 280.000</span>
-            <a href="#contacto" class="tbl-btn">Pedir →</a>
-          </div>
-        </div>
-      </div>
+
+      <!-- CUPS DE CHARCUTERIA -->
       <div class="tbl-card rv" style="transition-delay:.38s">
         <div class="tbl-img" style="position:relative;aspect-ratio:4/3;overflow:hidden">
           <img id="cupsImg" src="fotos/cups1.jpg" alt="Cups de Charcutería" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:opacity .5s ease">
@@ -543,13 +565,18 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
           <div class="tbl-cat">Para eventos</div>
           <h3 class="tbl-name">Cups de Charcutería</h3>
           <p class="tbl-desc">Porciones individuales perfectas para eventos y cócteles. Elegantes, prácticos y llenos de sabor.</p>
+          <p style="font-size:.75rem;color:#8A7869;margin-top:-.5rem;margin-bottom:.8rem">* A partir de 50 unidades se puede ajustar el precio</p>
           <div class="tbl-foot">
-            <span class="tbl-price">Gs 40.000 c/u</span>
-            <a href="#contacto" class="tbl-btn">Pedir →</a>
+            <span class="tbl-price">Gs. 40.000 c/u</span>
+            <div class="qty-ctrl" data-idx="3">
+              <button class="qty-btn qty-minus">−</button>
+              <input class="qty-val" type="number" value="0" min="0" step="1">
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
-          <p style="font-size:.75rem;color:#8A7869;margin-top:.6rem">* A partir de 50 unidades se puede ajustar el precio</p>
         </div>
       </div>
+
     </div>
     <div style="text-align:center;margin-top:3rem" class="rv">
       <p style="color:#8A7869;font-size:.88rem;margin-bottom:1.5rem">¿Tenés algo específico en mente? Creamos tablas 100% personalizadas para tu ocasión.</p>
@@ -557,6 +584,164 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
     </div>
   </div>
 </section>
+
+<!-- CARRITO FLOTANTE -->
+<button id="cart-fab" style="display:none;position:fixed;bottom:2rem;right:2rem;z-index:900;background:var(--espresso);color:var(--cream);border:none;border-radius:2rem;padding:.85rem 1.5rem;font-family:var(--sans);font-size:.85rem;font-weight:600;cursor:pointer;align-items:center;gap:.6rem;box-shadow:0 8px 28px rgba(44,24,16,.25);transition:transform .3s,background .3s;letter-spacing:.05em">
+  🛒 Ver pedido &nbsp;<span id="cart-count" style="background:var(--terra);color:#fff;border-radius:50%;width:22px;height:22px;font-size:.72rem;display:inline-flex;align-items:center;justify-content:center;font-weight:700">0</span>
+</button>
+
+<!-- PANEL CARRITO -->
+<div id="cart-panel" style="position:fixed;inset:0;z-index:1100;display:flex;align-items:stretch;justify-content:flex-end;pointer-events:none">
+  <div id="cart-overlay" style="position:absolute;inset:0;background:rgba(44,24,16,.45);opacity:0;transition:opacity .4s;cursor:pointer"></div>
+  <div id="cart-drawer" style="position:relative;width:100%;max-width:420px;background:#fff;transform:translateX(100%);transition:transform .45s cubic-bezier(.25,.46,.45,.94);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(44,24,16,.15)">
+    <div style="padding:1.8rem 1.8rem 1.2rem;border-bottom:1px solid var(--blush);display:flex;align-items:center;justify-content:space-between">
+      <h3 style="font-family:var(--serif);font-size:1.3rem">Tu pedido</h3>
+      <button id="cart-close" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--charcoal)">✕</button>
+    </div>
+    <div id="drawer-items" style="flex:1;overflow-y:auto;padding:1.2rem 1.8rem">
+      <p id="drawer-empty" style="text-align:center;padding:3rem 0;color:#8A7869;font-family:var(--italic);font-style:italic;font-size:1.05rem">Aún no agregaste nada 🧀</p>
+    </div>
+    <div style="padding:1.5rem 1.8rem;border-top:1px solid var(--blush)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem">
+        <span style="font-size:.85rem;color:var(--charcoal)">Total estimado</span>
+        <strong id="drawer-total" style="font-family:var(--serif);font-size:1.4rem;color:var(--espresso)">Gs. 0</strong>
+      </div>
+      <button id="btn-wa" style="width:100%;padding:1rem;background:#25D366;color:#fff;border:none;border-radius:2rem;font-family:var(--sans);font-size:.9rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:background .3s;letter-spacing:.05em">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar pedido por WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── CARRITO ── */
+var PRODUCTOS = [
+  {nombre: 'Ritual para Dos',     precio: 180000, img: 'fotos/Catalogo/caja-para2.jpg'},
+  {nombre: 'Tabla Maridaje',      precio: 390000, img: 'fotos/Catalogo/tabla-rectangular-+vino.jpg'},
+  {nombre: 'Tabla Clásica',       precio: 270000, img: 'fotos/Catalogo/4987907325607742596.jpg'},
+  {nombre: 'Cups de Charcutería', precio: 40000,  img: 'fotos/cups1.jpg'}
+];
+var cantidades = [0, 0, 0, 0];
+
+function fmtGs(n){ return 'Gs. ' + n.toLocaleString('es-PY'); }
+
+function actualizarCarrito(){
+  var total = 0, totalItems = 0;
+  cantidades.forEach(function(c,i){ total += c * PRODUCTOS[i].precio; totalItems += c; });
+
+  // fab
+  var fab = document.getElementById('cart-fab');
+  fab.style.display = totalItems > 0 ? 'flex' : 'none';
+  document.getElementById('cart-count').textContent = totalItems;
+  document.getElementById('drawer-total').textContent = fmtGs(total);
+
+  // items drawer
+  var cont = document.getElementById('drawer-items');
+  var empty = document.getElementById('drawer-empty');
+  var items = cantidades.map(function(c,i){
+    if(c === 0) return '';
+    return '<div style="display:grid;grid-template-columns:56px 1fr auto;gap:1rem;align-items:center;padding:.9rem 0;border-bottom:1px solid var(--blush)">' +
+      '<img src="'+ PRODUCTOS[i].img +'" style="width:56px;height:56px;border-radius:.7rem;object-fit:cover">' +
+      '<div><div style="font-size:.88rem;font-weight:600;color:var(--espresso)">'+ PRODUCTOS[i].nombre +'</div>' +
+      '<div style="font-size:.75rem;color:#8A7869;margin-top:.15rem">'+ fmtGs(PRODUCTOS[i].precio) +' c/u</div>' +
+      '<div style="display:flex;align-items:center;gap:.5rem;margin-top:.4rem">' +
+        '<button onclick="cambiarQty('+ i +',-1)" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--terra);background:transparent;color:var(--terra);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center">−</button>' +
+        '<input type="number" min="0" step="1" value="'+ c +'" onkeypress="if(!/[0-9]/.test(event.key))event.preventDefault()" oninput="var v=parseInt(this.value);if(isNaN(v)||v<0)v=0;this.value=Math.floor(v);setQty('+ i +',v)" style="width:38px;font-size:.85rem;font-weight:600;text-align:center;border:1.5px solid var(--blush);border-radius:.4rem;padding:.2rem .3rem;color:var(--espresso);font-family:var(--sans)">' +
+        '<button onclick="cambiarQty('+ i +',1)" style="width:24px;height:24px;border-radius:50%;border:1.5px solid var(--terra);background:transparent;color:var(--terra);cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center">+</button>' +
+      '</div></div>' +
+      '<div style="font-family:var(--serif);font-size:1rem;color:var(--terra);white-space:nowrap;align-self:flex-start;padding-top:.2rem">'+ fmtGs(c * PRODUCTOS[i].precio) +'</div>' +
+    '</div>';
+  }).join('');
+  if(items){
+    empty.style.display = 'none';
+    // remove old items
+    Array.from(cont.children).forEach(function(el){ if(el !== empty) el.remove(); });
+    cont.insertAdjacentHTML('beforeend', items);
+  } else {
+    empty.style.display = 'block';
+    Array.from(cont.children).forEach(function(el){ if(el !== empty) el.remove(); });
+  }
+}
+
+function setQty(idx, val){
+  val = parseInt(val);
+  if(isNaN(val) || val < 0) val = 0;
+  cantidades[idx] = val;
+  document.querySelectorAll('.qty-ctrl[data-idx="'+ idx +'"] .qty-val').forEach(function(el){
+    el.value = val;
+  });
+  actualizarCarrito();
+}
+
+function cambiarQty(idx, delta){
+  setQty(idx, cantidades[idx] + delta);
+}
+
+// botones +/- e input en cards
+document.querySelectorAll('.qty-ctrl').forEach(function(ctrl){
+  var idx = parseInt(ctrl.dataset.idx);
+  ctrl.querySelector('.qty-plus').addEventListener('click', function(){ cambiarQty(idx, 1); });
+  ctrl.querySelector('.qty-minus').addEventListener('click', function(){ cambiarQty(idx, -1); });
+  var inp = ctrl.querySelector('.qty-val');
+  inp.addEventListener('input', function(){
+    var v = parseInt(this.value);
+    if(isNaN(v) || v < 0){ this.value = 0; v = 0; }
+    this.value = Math.floor(v); // no decimales
+    cantidades[idx] = Math.floor(v);
+    actualizarCarrito();
+  });
+  inp.addEventListener('keypress', function(e){
+    // bloquear letras y punto/coma
+    if(!/[0-9]/.test(e.key)) e.preventDefault();
+  });
+});
+
+// abrir/cerrar panel
+document.getElementById('cart-fab').addEventListener('click', function(){ abrirPanel(); });
+document.getElementById('cart-close').addEventListener('click', function(){ cerrarPanel(); });
+document.getElementById('cart-overlay').addEventListener('click', function(){ cerrarPanel(); });
+
+function abrirPanel(){
+  var p = document.getElementById('cart-panel');
+  p.style.pointerEvents = 'all';
+  document.getElementById('cart-overlay').style.opacity = '1';
+  document.getElementById('cart-drawer').style.transform = 'translateX(0)';
+}
+function cerrarPanel(){
+  var p = document.getElementById('cart-panel');
+  p.style.pointerEvents = 'none';
+  document.getElementById('cart-overlay').style.opacity = '0';
+  document.getElementById('cart-drawer').style.transform = 'translateX(100%)';
+}
+
+// WhatsApp
+document.getElementById('btn-wa').addEventListener('click', function(){
+  var lineas = cantidades.map(function(c,i){
+    if(c === 0) return '';
+    return '• '+ c +'x '+ PRODUCTOS[i].nombre +' — '+ fmtGs(c * PRODUCTOS[i].precio);
+  }).filter(Boolean);
+  var total = cantidades.reduce(function(s,c,i){ return s + c * PRODUCTOS[i].precio; }, 0);
+  var msg = 'Hola! Quiero hacer el siguiente pedido:%0A%0A' +
+    lineas.join('%0A').replace(/ /g,'%20').replace(/•/g,'•') +
+    '%0A%0A*Total: ' + fmtGs(total) + '*%0A%0AQuedo a la espera de confirmar entrega 😊';
+  window.open('https://wa.me/595991538133?text=' + encodeURIComponent(
+    'Hola! Quiero hacer el siguiente pedido:\n\n' +
+    lineas.join('\n') +
+    '\n\nTotal: ' + fmtGs(total) +
+    '\n\nQuedo a la espera de confirmar entrega 😊'
+  ), '_blank');
+});
+</script>
+
+<style>
+.qty-ctrl{display:flex;align-items:center;gap:.5rem}
+.qty-btn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--terra);background:transparent;color:var(--terra);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:600;line-height:1}
+.qty-btn:hover{background:var(--terra);color:#fff}
+.qty-val{font-size:.95rem;font-weight:700;width:42px;text-align:center;color:var(--espresso);border:1.5px solid var(--blush);border-radius:.4rem;padding:.2rem .3rem;font-family:var(--sans);-moz-appearance:textfield}
+.qty-val::-webkit-outer-spin-button,.qty-val::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+#cart-fab:hover{background:var(--terra);transform:translateY(-3px)}
+</style>
 
 <!-- TALLERES -->
 <section id="talleres" class="sp">
