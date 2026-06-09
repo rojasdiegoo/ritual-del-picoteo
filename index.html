@@ -610,6 +610,26 @@ footer{background:#1C0E08;padding:4rem 3.5rem 2.2rem}
           <button onclick="modalMas()" style="width:36px;height:36px;border-radius:50%;border:2px solid var(--terra);background:var(--terra);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
         </div>
       </div>
+      <!-- TOSTADAS ADD-ON (solo para tablas, no cups) -->
+      <div id="tostadas-addon" style="display:none;margin-bottom:1.2rem">
+        <div id="tostadas-label" style="display:flex;align-items:center;gap:.9rem;background:var(--blush);border-radius:1rem;padding:.9rem 1rem;border:1.5px solid transparent;transition:border-color .2s">
+          <img src="fotos/Catalogo/tostadas.jpeg" alt="Tostadas de la casa" style="width:52px;height:52px;border-radius:.6rem;object-fit:cover;flex-shrink:0">
+          <div style="flex:1">
+            <div style="font-size:.88rem;font-weight:600;color:var(--espresso)">Tostadas de la casa</div>
+            <div style="font-size:.78rem;color:#8A7869;margin-top:.15rem">Gs. 20.000 c/u</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.6rem">
+            <button onclick="cambiarTostadasModal(-1)" style="width:30px;height:30px;border-radius:50%;border:1.5px solid var(--terra);background:transparent;color:var(--terra);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">−</button>
+            <span id="tostadas-modal-qty" style="font-size:1rem;font-weight:700;min-width:1.2rem;text-align:center;color:var(--espresso)">0</span>
+            <button onclick="cambiarTostadasModal(1)" style="width:30px;height:30px;border-radius:50%;border:1.5px solid var(--terra);background:var(--terra);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700">+</button>
+          </div>
+        </div>
+      </div>
+      <!-- TOTAL EN TIEMPO REAL -->
+      <div id="modal-total-wrap" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;padding:.8rem 1rem;background:var(--cream);border-radius:.8rem">
+        <span style="font-size:.8rem;color:#8A7869;text-transform:uppercase;letter-spacing:.08em">Total</span>
+        <span id="modal-total" style="font-family:var(--serif);font-size:1.3rem;color:var(--espresso);font-weight:700"></span>
+      </div>
       <button onclick="agregarAlCarrito()" style="width:100%;padding:1rem;background:var(--espresso);color:var(--cream);border:none;border-radius:2rem;font-family:var(--sans);font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.06em;transition:background .3s">Agregar al pedido →</button>
     </div>
   </div>
@@ -653,11 +673,29 @@ var PRODUCTOS = [
   {nombre:'Cups de Charcutería', cat:'Para eventos',     precio:40000,  img:'fotos/cups1.jpg',                                 desc:'Porciones individuales perfectas para eventos y cócteles. Elegantes, prácticos y llenos de sabor.', nota:'* A partir de 50 unidades se puede ajustar el precio'}
 ];
 var cantidades = [0,0,0,0];
+var tostadas = 0; // unidades de tostadas en el carrito
 var modalIdx = 0, modalQty = 1;
 
 function fmtGs(n){ return 'Gs. ' + n.toLocaleString('es-PY'); }
 
 /* ── MODAL PRODUCTO ── */
+var tostadasModalQty = 0;
+
+function cambiarTostadasModal(delta){
+  tostadasModalQty = Math.max(0, tostadasModalQty + delta);
+  document.getElementById('tostadas-modal-qty').textContent = tostadasModalQty;
+  var label = document.getElementById('tostadas-label');
+  label.style.borderColor = tostadasModalQty > 0 ? 'var(--terra)' : 'transparent';
+  label.style.background = tostadasModalQty > 0 ? '#f5e8df' : 'var(--blush)';
+  actualizarModalTotal();
+}
+
+function actualizarModalTotal(){
+  var precio = PRODUCTOS[modalIdx].precio;
+  var total = precio * modalQty + tostadasModalQty * 20000;
+  document.getElementById('modal-total').textContent = fmtGs(total);
+}
+
 function abrirProducto(idx){
   modalIdx = idx;
   modalQty = 1;
@@ -667,6 +705,15 @@ function abrirProducto(idx){
   document.getElementById('prod-img').alt = p.nombre;
   document.getElementById('prod-nombre').textContent = p.nombre;
   document.getElementById('prod-desc').textContent = p.desc;
+  // Reset tostadas
+  tostadasModalQty = 0;
+  document.getElementById('tostadas-modal-qty').textContent = '0';
+  document.getElementById('tostadas-label').style.borderColor = 'transparent';
+  document.getElementById('tostadas-label').style.background = 'var(--blush)';
+  // Mostrar addon solo para tablas (no cups = idx 3)
+  document.getElementById('tostadas-addon').style.display = 'block';
+  // Total inicial
+  actualizarModalTotal();
   var notaEl = document.getElementById('prod-nota');
   if(p.nota){ notaEl.textContent = p.nota; notaEl.style.display = 'block'; }
   else { notaEl.style.display = 'none'; }
@@ -683,13 +730,13 @@ function cerrarProducto(){
   document.getElementById('prod-overlay').style.opacity = '0';
   document.getElementById('prod-sheet').style.transform = 'translateY(100%)';
 }
-function modalMas(){ modalQty++; document.getElementById('modal-qty').textContent = modalQty; }
-function modalMenos(){ if(modalQty > 1) modalQty--; document.getElementById('modal-qty').textContent = modalQty; }
+function modalMas(){ modalQty++; document.getElementById('modal-qty').textContent = modalQty; actualizarModalTotal(); }
+function modalMenos(){ if(modalQty > 1) modalQty--; document.getElementById('modal-qty').textContent = modalQty; actualizarModalTotal(); }
 function agregarAlCarrito(){
   cantidades[modalIdx] += modalQty;
+  if(tostadasModalQty > 0) tostadas += tostadasModalQty;
   actualizarCarrito();
   cerrarProducto();
-  // mostrar carrito brevemente
   setTimeout(function(){ abrirPanel(); }, 350);
 }
 document.getElementById('prod-overlay').addEventListener('click', cerrarProducto);
@@ -698,6 +745,7 @@ document.getElementById('prod-overlay').addEventListener('click', cerrarProducto
 function actualizarCarrito(){
   var total = 0, totalItems = 0;
   cantidades.forEach(function(c,i){ total += c * PRODUCTOS[i].precio; totalItems += c; });
+  total += tostadas * 20000;
   var fab = document.getElementById('cart-fab');
   fab.style.display = totalItems > 0 ? 'flex' : 'none';
   document.getElementById('cart-count').textContent = totalItems;
@@ -718,6 +766,20 @@ function actualizarCarrito(){
       '<div style="font-family:var(--serif);font-size:1rem;color:var(--terra);white-space:nowrap;align-self:flex-start;padding-top:.2rem">'+ fmtGs(c * PRODUCTOS[i].precio) +'</div>' +
     '</div>';
   }).join('');
+  // Tostadas en el carrito
+  if(tostadas > 0){
+    items += '<div style="display:grid;grid-template-columns:56px 1fr auto;gap:1rem;align-items:center;padding:.9rem 0;border-bottom:1px solid var(--blush)">' +
+      '<img src="fotos/Catalogo/tostadas.jpeg" style="width:56px;height:56px;border-radius:.7rem;object-fit:cover">' +
+      '<div><div style="font-size:.88rem;font-weight:600;color:var(--espresso)">Tostadas de la casa</div>' +
+      '<div style="font-size:.75rem;color:#8A7869;margin-top:.15rem">Gs. 20.000 c/u</div>' +
+      '<div style="display:flex;align-items:center;gap:.5rem;margin-top:.4rem">' +
+        '<button onclick="cambiarTostadas(-1)" style="width:26px;height:26px;border-radius:50%;border:1.5px solid var(--terra);background:transparent;color:var(--terra);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center">−</button>' +
+        '<span style="font-size:.9rem;font-weight:600;min-width:1.5rem;text-align:center">'+ tostadas +'</span>' +
+        '<button onclick="cambiarTostadas(1)" style="width:26px;height:26px;border-radius:50%;border:1.5px solid var(--terra);background:var(--terra);color:#fff;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center">+</button>' +
+      '</div></div>' +
+      '<div style="font-family:var(--serif);font-size:1rem;color:var(--terra);white-space:nowrap;align-self:flex-start;padding-top:.2rem">'+ fmtGs(tostadas * 20000) +'</div>' +
+    '</div>';
+  }
   if(items){
     empty.style.display = 'none';
     Array.from(cont.children).forEach(function(el){ if(el !== empty) el.remove(); });
@@ -730,6 +792,10 @@ function actualizarCarrito(){
 
 function cambiarQty(idx, delta){
   cantidades[idx] = Math.max(0, cantidades[idx] + delta);
+  actualizarCarrito();
+}
+function cambiarTostadas(delta){
+  tostadas = Math.max(0, tostadas + delta);
   actualizarCarrito();
 }
 
@@ -755,7 +821,8 @@ document.getElementById('btn-wa').addEventListener('click', function(){
     if(c === 0) return '';
     return '• '+ c +'x '+ PRODUCTOS[i].nombre +' — '+ fmtGs(c * PRODUCTOS[i].precio);
   }).filter(Boolean);
-  var total = cantidades.reduce(function(s,c,i){ return s + c * PRODUCTOS[i].precio; }, 0);
+  if(tostadas > 0) lineas.push('• '+ tostadas +'x Tostadas de la casa — '+ fmtGs(tostadas * 20000));
+  var total = cantidades.reduce(function(s,c,i){ return s + c * PRODUCTOS[i].precio; }, 0) + tostadas * 20000;
   window.open('https://wa.me/595991538133?text=' + encodeURIComponent(
     'Hola! Quiero hacer el siguiente pedido:\n\n' +
     lineas.join('\n') +
